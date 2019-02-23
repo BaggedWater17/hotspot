@@ -46,8 +46,8 @@ crdaf="/etc/default/crda"
 hostn="`hostname`"
 # spot_ssid="${hostn}-hotspot"  # <hostname>-hotspot
 spot_ssid="`echo "$hostn" | sed 's/./\U&/g'`wlan-`cat /sys/class/net/$wli_dev/address | awk -F ":" '{print $4$5$6}'`"  # <HOSTNAME>wlan-<lastMAC3byte>
-spot_psk="hallohallo"
-spot_cntry2="DE"
+spot_psk="4174"
+spot_cntry2="US"
 
 function Hotspot_Defines {
   eth_ip=`ip addr show dev "$eth_dev" 2>/dev/null   | awk '/inet / { print $2 }'`
@@ -455,7 +455,6 @@ driver=nl80211
 
 channel=6
 hw_mode=g
-country_code=$spot_cntry2
 ssid=$spot_ssid
 wpa_passphrase=$spot_psk
 
